@@ -1,1 +1,123 @@
-<p>register-component works!</p>
+<div class="page-container">
+  <!-- Верхняя панель (Header) -->
+  <header class="header">
+    <div class="logo">SURF.RU</div>
+    <a routerLink="/login" class="header-link">Войти</a>
+  </header>
+
+  <!-- Основной контент -->
+  <main class="main-content">
+    <div class="register-card">
+      <!-- Заголовок карточки -->
+      <div class="card-header">
+        Регистрация нового пользователя
+      </div>
+
+      <!-- Тело карточки с формой -->
+      <div class="card-body">
+        <form class="register-form">
+          
+          <!-- Верхняя секция: Поля слева + Аватар справа -->
+          <div class="form-grid-top">
+            
+            <!-- Левая колонка с полями -->
+            <div class="inputs-column">
+              <div class="form-group tooltip-container">
+                <label for="username">Псевдоним*</label>
+                <input type="text" id="username" name="username" class="form-input">
+                <!-- Всплывающая подсказка -->
+                <div class="tooltip">
+                  <div class="tooltip-arrow"></div>
+                  От 3 до 20 символов. Латиница, кириллица, цифры и подчёркивания
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Почта</label>
+                <input type="email" id="email" name="email" class="form-input">
+              </div>
+
+              <div class="form-group tooltip-container">
+                <label for="password">Пароль*</label>
+                <input type="password" id="password" name="password" class="form-input">
+                <!-- Всплывающая подсказка -->
+                <div class="tooltip">
+                  <div class="tooltip-arrow"></div>
+                  От 6 до 20 символов. Латиница, кириллица, цифры и подчёркивания
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="confirmPassword">Подтвердите пароль*</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" class="form-input">
+              </div>
+
+              <div class="form-group">
+                <label for="lastName">Фамилия</label>
+                <input type="text" id="lastName" name="lastName" class="form-input">
+              </div>
+
+              <div class="form-group">
+                <label for="firstName">Имя</label>
+                <input type="text" id="firstName" name="firstName" class="form-input">
+              </div>
+            </div>
+
+            <!-- Правая колонка: Заглушка фотографии -->
+            <div class="avatar-column">
+              <div class="avatar-placeholder">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="placeholder-icon">
+                  <!-- Упрощенный силуэт или абстракция, имитирующая карандашный набросок -->
+                  <path d="M20,80 C30,60 40,55 50,55 C60,55 70,60 80,80" stroke="#cfd7de" stroke-width="2" fill="none" />
+                  <circle cx="50" cy="35" r="18" stroke="#cfd7de" stroke-width="2" fill="none" />
+                  <path d="M10,15 L90,85 M90,15 L10,85" stroke="#ececec" stroke-width="1" />
+                </svg>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Поля на всю ширину формы -->
+          <div class="form-group-full">
+            <label>Выберите фото</label>
+            <div class="file-upload-wrapper">
+              <input type="text" readonly class="form-input file-path-input" placeholder="">
+              <label class="btn btn-file">
+                Обзор...
+                <input type="file" class="hidden-file-input">
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group-full">
+            <label for="contacts">Контактная информация</label>
+            <textarea id="contacts" name="contacts" class="form-textarea"></textarea>
+          </div>
+
+          <div class="form-group-full">
+            <label for="about">О себе</label>
+            <textarea id="about" name="about" class="form-textarea"></textarea>
+          </div>
+
+          <div class="form-group-full">
+            <label for="achievements">Достижения</label>
+            <textarea id="achievements" name="achievements" class="form-textarea"></textarea>
+          </div>
+
+          <!-- Нижняя часть внутри карточки -->
+          <div class="card-footer">
+            <span class="required-note">* - поля, обязательные для заполнения</span>
+            <button type="submit" class="btn btn-submit">Зарегистрироваться</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+    <!-- Блок входа под формой -->
+    <div class="footer-prompt">
+      <span>Уже есть аккаунт?</span>
+      <button routerLink="/login" class="btn btn-secondary">Войти</button>
+    </div>
+  </main>
+</div>

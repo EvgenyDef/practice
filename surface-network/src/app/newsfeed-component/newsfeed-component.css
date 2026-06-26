@@ -1,0 +1,228 @@
+/* Базовые стили страницы */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f1f5f9;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Шапка сайта */
+.header {
+  position: sticky;   /* Закрепляем элемент */
+  top: 0;             /* Прижимаем к самому верху */
+  z-index: 1000;      /* Гарантирует, что шапка будет поверх прокручиваемого контента */
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  background-color: #cbd5e1;
+  height: 50px;
+  border-bottom: 1px solid #b8c5d6;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  padding-left: 24px;
+  font-size: 26px;
+  font-weight: 900;
+  font-style: italic;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.header-right {
+  display: flex;
+  align-items: stretch;
+}
+
+/* Профиль пользователя в шапке */
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 20px;
+}
+
+.user-avatar-fallback {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #e2e8f0;
+  border: 1px solid #94a3b8;
+  background-image: radial-gradient(circle, #f8fafc 30%, #cbd5e1 100%); /* Временная заглушка аватара */
+}
+
+.username {
+  font-size: 14px;
+  color: #334155;
+  font-weight: 500;
+}
+
+/* Кнопка выхода */
+.logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  background: none;
+  border: none;
+  border-left: 1px solid #9bb0c2;
+  cursor: pointer;
+  color: #334155;
+  transition: background-color 0.15s;
+}
+
+.logout-btn:hover {
+  background-color: #b9c9d6;
+}
+
+.logout-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Контентная область */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* Карточки в ленте */
+.feed-card {
+  width: 100%;
+  max-width: 900px;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.01);
+  margin-bottom: 24px;
+}
+
+.card-header {
+  background-color: #dae4ec;
+  padding: 12px 20px;
+  font-size: 14px;
+  color: #334155;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.card-body {
+  padding: 24px;
+}
+
+/* Форма добавления поста */
+.post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* Большая текстовая область */
+.form-textarea {
+  width: 100%;
+  min-height: 160px; /* Высокая область для ввода текста, как на макете */
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #1e293b;
+  outline: none;
+  resize: vertical;
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+}
+
+.form-textarea:focus {
+  border-color: #94a3b8;
+}
+
+/* Нижняя строка формы */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+/* Поле прикрепления изображения */
+.file-upload-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  max-width: 340px;
+}
+
+.file-upload-group label {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.file-upload-wrapper {
+  display: flex;
+}
+
+.file-path-input {
+  flex: 1;
+  border: 1px solid #cbd5e1;
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  background-color: #f8fafc;
+  outline: none;
+  height: 38px;
+  box-sizing: border-box;
+}
+
+.hidden-file-input {
+  display: none;
+}
+
+/* Кнопки */
+.btn {
+  padding: 8px 24px;
+  border: 1px solid #a8bccc;
+  background-color: #dae4ec;
+  color: #4a5568;
+  font-size: 14px;
+  cursor: pointer;
+  height: 38px;
+  box-sizing: border-box;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.btn:hover {
+  background-color: #c5d5e2;
+  border-color: #7f94a6;
+}
+
+.btn-file {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 4px 4px 0;
+  border-left: 1px solid #a8bccc;
+}
+
+.btn-submit {
+  border-radius: 4px;
+  min-width: 200px;
+}

@@ -1,1 +1,52 @@
-<p>login-component works!</p>
+<div class="page-container">
+  <!-- Верхняя панель (Header) -->
+  <header class="header">
+    <div class="logo">SURF.RU</div>
+    <a routerLink="/register" class="header-link">Регистрация</a>
+  </header>
+
+  <!-- Основной контент -->
+  <main class="main-content">
+    <div class="login-card">
+      <!-- Заголовок карточки -->
+      <div class="card-header">
+        Вход в систему
+      </div>
+      
+      <!-- Форма авторизации -->
+      <div class="card-body">
+        <form class="login-form">
+          <div class="form-group">
+            <label for="username">Псевдоним</label>
+            <input 
+              type="text" 
+              id="username" 
+              name="username" 
+              placeholder="Текст" 
+              class="form-input"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="password">Пароль</label>
+            <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              placeholder="**********" 
+              class="form-input"
+            >
+          </div>
+
+          <button type="submit" class="btn btn-submit">Войти</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Блок регистрации под формой -->
+    <div class="footer-prompt">
+      <span>Нет аккаунта?</span>
+      <button routerLink="/register" class="btn btn-secondary">Зарегистрироваться</button>
+    </div>
+  </main>
+</div>
