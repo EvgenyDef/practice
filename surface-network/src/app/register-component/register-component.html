@@ -24,43 +24,88 @@
             <div class="inputs-column">
               <div class="form-group tooltip-container">
                 <label for="username">Псевдоним*</label>
-                <input type="text" id="username" name="username" class="form-input">
+                <input type="text" 
+                id="username" 
+                name="username" 
+                class="form-input"
+                [(ngModel)]="nickname">
                 <!-- Всплывающая подсказка -->
                 <div class="tooltip">
                   <div class="tooltip-arrow"></div>
                   От 3 до 20 символов. Латиница, кириллица, цифры и подчёркивания
                 </div>
               </div>
+              @if (!isNicknameValid) {
+                  <p>Длина псевдонима должна быть от 3 до 20 символов</p>
+                }
 
               <div class="form-group">
                 <label for="email">Почта</label>
-                <input type="email" id="email" name="email" class="form-input">
+                <input type="email" 
+                id="email" 
+                name="email" 
+                class="form-input" 
+                placeholder="example@ex.ru"
+                [(ngModel)]="email">
+
+                @if (!isEmailValid) {
+                  <p>Адрес почты должен содержать символ '@'</p>
+                }
+
+                @if (!isEmailLengthValid) {
+                  <p>Адрес почты должен быть не длиннее 31 символа</p>
+                }
               </div>
 
               <div class="form-group tooltip-container">
                 <label for="password">Пароль*</label>
-                <input type="password" id="password" name="password" class="form-input">
+                <input type="password" id="password" name="password" class="form-input" [(ngModel)]="password" >
                 <!-- Всплывающая подсказка -->
                 <div class="tooltip">
                   <div class="tooltip-arrow"></div>
                   От 6 до 20 символов. Латиница, кириллица, цифры и подчёркивания
                 </div>
               </div>
+                @if (!isValidLength) {
+                <p>Длина пароля должна быть от 6 до 20 символов</p>
+                }
+                @if (!isValidSymbols) {
+                  <p>Пароль может включать в себя латиницу, цифры и подчеркивания</p>
+                }
+              
+             
 
               <div class="form-group">
                 <label for="confirmPassword">Подтвердите пароль*</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" class="form-input">
+                <input type="password" 
+                id="confirmPassword" 
+                name="confirmPassword" 
+                class="form-input">
               </div>
 
               <div class="form-group">
                 <label for="lastName">Фамилия</label>
-                <input type="text" id="lastName" name="lastName" class="form-input">
+                <input type="text" 
+                id="lastName" 
+                name="lastName" 
+                class="form-input"
+                [(ngModel)]="lastname">
               </div>
+              @if (!isFirstnameValid) {
+                <p>Фамилия не может быть длиннее 31 символа</p>
+              }
 
               <div class="form-group">
                 <label for="firstName">Имя</label>
-                <input type="text" id="firstName" name="firstName" class="form-input">
+                <input type="text" 
+                id="firstName" 
+                name="firstName" 
+                class="form-input"
+                [(ngModel)]="firstname">
               </div>
+              @if (!isFirstnameValid) {
+                <p>Имя не может быть длиннее 31 символа</p>
+              }
             </div>
 
             <!-- Правая колонка: Заглушка фотографии -->

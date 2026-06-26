@@ -22,10 +22,13 @@
               type="text" 
               id="username" 
               name="username" 
-              placeholder="Текст" 
               class="form-input"
+              [(ngModel)]="nickname"
             >
           </div>
+          @if (!isNicknameValid) {
+                  <p>Длина псевдонима должна быть от 3 до 20 символов</p>
+                }
 
           <div class="form-group">
             <label for="password">Пароль</label>
@@ -33,10 +36,16 @@
               type="password" 
               id="password" 
               name="password" 
-              placeholder="**********" 
               class="form-input"
+              [(ngModel)]="password"
             >
           </div>
+            @if (!isValidLength) {
+              <p>Длина пароля должна быть от 6 до 20 символов</p>
+              }
+            @if (!isValidSymbols) {
+              <p>Пароль может включать в себя латиницу, цифры и подчеркивания</p>
+              }
 
           <button type="submit" class="btn btn-submit">Войти</button>
         </form>
