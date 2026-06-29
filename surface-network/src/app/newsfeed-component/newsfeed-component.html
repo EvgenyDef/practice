@@ -1,18 +1,19 @@
-<div class="page-container">
-  <!-- Верхняя панель (Header) -->
-  <header class="header">
-    <div class="logo">SURF.RU</div>
+<div class="min-vh-100 d-flex flex-column bg-light">
+  <!-- Верхняя панель (Header): sticky-top фиксирует шапку вверху -->
+  <header class="navbar px-4 bg-secondary text-white justify-content-between sticky-top" style="height: 50px;">
+    <div class="fw-bold fst-italic fs-4">SURF.RU</div>
     
-    <div class="header-right">
+    <div class="d-flex align-items-stretch h-100">
       <!-- Профиль пользователя -->
-      <div class="user-profile">
-        <div class="user-avatar-fallback"></div>
-        <span class="username">пользователь</span>
+      <div class="d-flex align-items-center gap-2 px-3">
+        <!-- Округлая аватарка (rounded-circle) с легким градиентом-заглушкой -->
+        <div class="rounded-circle border border-light" style="width: 32px; height: 32px; background: radial-gradient(circle, #f8fafc 30%, #cbd5e1 100%);"></div>
+        <span class="small fw-medium">пользователь</span>
       </div>
-      <!-- Кнопка выхода -->
-      <button class="logout-btn" title="Выйти">
+      <!-- Кнопка выхода: стилизована под ссылку без рамок (btn-link) с разделителем-границей слева -->
+      <button class="btn btn-link text-white border-start border-white border-opacity-25 rounded-0 px-3 d-flex align-items-center" style="text-decoration: none;" title="Выйти">
         <!-- SVG Иконка выхода -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="logout-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px;">
           <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
           <polyline points="16 17 21 12 16 7"></polyline>
           <line x1="21" y1="12" x2="9" y2="12"></line>
@@ -22,41 +23,46 @@
   </header>
 
   <!-- Основной контент -->
-  <main class="main-content">
+  <main class="flex-grow-1 d-flex flex-column align-items-center p-4">
     
-    <!-- Карточка добавления новой записи -->
-    <div class="feed-card create-post-card">
-      <div class="card-header">
+    <!-- Карточка добавления новой записи (card, shadow-sm) -->
+    <div class="card shadow-sm w-100" style="max-width: 900px;">
+      <div class="card-header bg-secondary bg-opacity-25 py-2 text-secondary-emphasis">
         Добавление новой записи
       </div>
-      <div class="card-body">
+      <div class="card-body p-4">
         <form class="post-form">
           <!-- Текстовое поле -->
-          <div class="form-group">
-            <label for="postText">Введите текст</label>
+          <div class="mb-3">
+            <label for="postText" class="form-label text-muted small mb-1">Введите текст</label>
             <textarea 
               id="postText" 
               name="postText" 
-              class="form-textarea" 
+              class="form-control" 
               placeholder="Текст"
+              rows="6"
+              style="min-height: 150px;"
             ></textarea>
           </div>
 
-          <!-- Нижняя панель формы (загрузка файла и кнопка отправки) -->
-          <div class="form-actions">
+          <!-- Нижняя панель формы (flex-wrap позволяет переносить элементы на мобильных) -->
+          <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mt-3">
             
-            <div class="file-upload-group">
-              <label>Прикрепить изображение</label>
-              <div class="file-upload-wrapper">
-                <input type="text" readonly class="form-input file-path-input">
-                <label class="btn btn-file">
+            <!-- Группа загрузки изображения -->
+            <div class="w-100" style="max-width: 340px;">
+              <label class="form-label text-muted small mb-1">Прикрепить изображение</label>
+              <!-- Bootstrap input-group соединяет текстовое поле и кнопку в один элемент -->
+              <div class="input-group">
+                <input type="text" readonly class="form-control bg-light">
+                <label class="btn btn-outline-secondary mb-0 d-flex align-items-center">
                   Обзор...
-                  <input type="file" class="hidden-file-input">
+                  <input type="file" class="d-none"> <!-- d-none скрывает стандартный input -->
                 </label>
               </div>
             </div>
 
-            <button type="submit" class="btn btn-submit">Добавить</button>
+            <!-- Кнопка отправки -->
+            <button type="submit" class="btn btn-primary px-5">Добавить</button>
           </div>
         </form>
       </div>

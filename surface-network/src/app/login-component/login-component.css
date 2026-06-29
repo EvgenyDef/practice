@@ -32,6 +32,12 @@
   letter-spacing: 1px;
 }
 
+.error {
+  border: 1px solid red;
+  border-radius: 6px;
+  padding: 8px 14px;
+}
+
 .header-link {
   display: flex;
   align-items: center;

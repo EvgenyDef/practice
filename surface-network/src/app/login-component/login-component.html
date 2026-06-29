@@ -1,61 +1,86 @@
-<div class="page-container">
-  <!-- Верхняя панель (Header) -->
-  <header class="header">
-    <div class="logo">SURF.RU</div>
-    <a routerLink="/register" class="header-link">Регистрация</a>
+
+<!-- min-vh-100 (высота во весь экран), d-flex, flex-column, bg-light (светлый фон) -->
+<div class="min-vh-100 d-flex flex-column bg-light">
+  
+  <!-- Шапка: navbar, цвета bg-secondary (серый) и text-white (белый) -->
+  <header class="navbar px-4 bg-secondary text-white justify-content-between" style="height: 50px;">
+    <div class="fw-bold fst-italic fs-4">SURF.RU</div>
+    <!-- Кнопка регистрации в виде ссылки-очертания (btn-outline-light) -->
+    <a routerLink="/register" class="btn btn-sm btn-outline-light">Регистрация</a>
   </header>
 
-  <!-- Основной контент -->
-  <main class="main-content">
-    <div class="login-card">
-      <!-- Заголовок карточки -->
-      <div class="card-header">
+  <!-- Центрирование содержимого с помощью Flexbox -->
+  <main class="flex-grow-1 d-flex flex-column justify-content-center align-items-center p-3">
+    
+    <!-- Карточка Bootstrap: card, shadow-sm (легкая тень) -->
+    <div class="card shadow-sm w-100" style="max-width: 500px;">
+      
+      <!-- Заголовок карточки: card-header -->
+      <div class="card-header bg-secondary bg-opacity-25 py-2 text-secondary-emphasis">
         Вход в систему
       </div>
       
-      <!-- Форма авторизации -->
-      <div class="card-body">
-        <form class="login-form">
-          <div class="form-group">
-            <label for="username">Псевдоним</label>
+      <!-- Тело карточки: card-body -->
+      <div class="card-body p-4">
+        <form (submit)="onSubmit($event)">
+          
+          <!-- mb-3 (margin-bottom: 3) заменяет .form-group -->
+          <div class="mb-3">
+            <label for="username" class="form-label text-muted small">Псевдоним</label>
+            <!-- form-control делает поле адаптивным и стильным -->
             <input 
               type="text" 
               id="username" 
               name="username" 
-              class="form-input"
+              class="form-control"
               [(ngModel)]="nickname"
             >
+            @if (!isNicknameValid && isSubmitted) {
+              <!-- text-danger (красный цвет), small (мелкий шрифт), mt-1 (отступ сверху) -->
+              <div class="text-danger small mt-1 error">Длина псевдонима должна быть от 3 до 20 символов</div>
+            }
           </div>
-          @if (!isNicknameValid) {
-                  <p>Длина псевдонима должна быть от 3 до 20 символов</p>
-                }
 
-          <div class="form-group">
-            <label for="password">Пароль</label>
+          <div class="mb-3">
+            <label for="password" class="form-label text-muted small">Пароль</label>
             <input 
               type="password" 
               id="password" 
               name="password" 
-              class="form-input"
+              class="form-control"
               [(ngModel)]="password"
             >
+            @if (!isValidLength && isSubmitted) {
+              <div class="text-danger small mt-1 error">Длина пароля должна быть от 6 до 20 символов</div>
+            }
+            @if (!isValidSymbols && isSubmitted) {
+              <div class="text-danger small mt-1 error">Пароль может включать в себя латиницу, цифры и подчеркивания</div>
+            }
           </div>
-            @if (!isValidLength) {
-              <p>Длина пароля должна быть от 6 до 20 символов</p>
-              }
-            @if (!isValidSymbols) {
-              <p>Пароль может включать в себя латиницу, цифры и подчеркивания</p>
-              }
 
-          <button type="submit" class="btn btn-submit">Войти</button>
+          <!-- d-grid растягивает кнопку во всю ширину -->
+          <div class="d-grid mt-4">
+            <button type="submit" class="btn btn-primary">Войти</button>
+          </div>
         </form>
       </div>
     </div>
 
-    <!-- Блок регистрации под формой -->
-    <div class="footer-prompt">
+    <!-- Блок регистрации под формой (d-flex, gap-2 для отступа) -->
+    <div class="d-flex align-items-center gap-2 mt-4 text-muted small">
       <span>Нет аккаунта?</span>
-      <button routerLink="/register" class="btn btn-secondary">Зарегистрироваться</button>
+      <button routerLink="/register" class="btn btn-sm btn-outline-secondary">Зарегистрироваться</button>
     </div>
   </main>
 </div>
+
+
+
+
+
+
+
+
+
+
+

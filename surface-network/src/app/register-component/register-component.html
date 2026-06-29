@@ -1,118 +1,125 @@
-<div class="page-container">
+<div class="min-vh-100 d-flex flex-column bg-light">
   <!-- Верхняя панель (Header) -->
-  <header class="header">
-    <div class="logo">SURF.RU</div>
-    <a routerLink="/login" class="header-link">Войти</a>
+  <header class="navbar px-4 bg-secondary text-white justify-content-between" style="height: 50px;">
+    <div class="fw-bold fst-italic fs-4">SURF.RU</div>
+    <a routerLink="/login" class="btn btn-sm btn-outline-light">Войти</a>
   </header>
 
   <!-- Основной контент -->
-  <main class="main-content">
-    <div class="register-card">
+  <main class="flex-grow-1 d-flex flex-column justify-content-center align-items-center p-4">
+    <div class="card shadow-sm w-100" style="max-width: 850px;">
       <!-- Заголовок карточки -->
-      <div class="card-header">
+      <div class="card-header bg-secondary bg-opacity-25 py-2 text-secondary-emphasis">
         Регистрация нового пользователя
       </div>
 
       <!-- Тело карточки с формой -->
-      <div class="card-body">
+      <div class="card-body p-4">
         <form class="register-form">
           
-          <!-- Верхняя секция: Поля слева + Аватар справа -->
-          <div class="form-grid-top">
+          <!-- Верхняя секция: Сетка Bootstrap (row) -->
+          <div class="row g-4 mb-3">
             
-            <!-- Левая колонка с полями -->
-            <div class="inputs-column">
-              <div class="form-group tooltip-container">
-                <label for="username">Псевдоним*</label>
+            <!-- Левая колонка с полями (8 колонок на больших экранах, 12 на мобильных) -->
+            <div class="col-lg-8 col-md-7 d-flex flex-column gap-3">
+              
+              <div class="position-relative tooltip-container">
+                <label for="username" class="form-label text-muted small mb-1">Псевдоним*</label>
                 <input type="text" 
-                id="username" 
-                name="username" 
-                class="form-input"
-                [(ngModel)]="nickname">
-                <!-- Всплывающая подсказка -->
+                  id="username" 
+                  name="username" 
+                  class="form-control"
+                  [(ngModel)]="nickname"
+                >
+                <!-- Всплывающая подсказка (ваши стили сохранены) -->
                 <div class="tooltip">
                   <div class="tooltip-arrow"></div>
                   От 3 до 20 символов. Латиница, кириллица, цифры и подчёркивания
                 </div>
-              </div>
-              @if (!isNicknameValid) {
-                  <p>Длина псевдонима должна быть от 3 до 20 символов</p>
+                @if (!isNicknameValid) {
+                  <div class="text-danger small mt-1 error">Длина псевдонима должна быть от 3 до 20 символов</div>
                 }
+              </div>
 
-              <div class="form-group">
-                <label for="email">Почта</label>
+              <div>
+                <label for="email" class="form-label text-muted small mb-1">Почта</label>
                 <input type="email" 
-                id="email" 
-                name="email" 
-                class="form-input" 
-                placeholder="example@ex.ru"
-                [(ngModel)]="email">
-
+                  id="email" 
+                  name="email" 
+                  class="form-control" 
+                  placeholder="example@ex.ru"
+                  [(ngModel)]="email"
+                >
                 @if (!isEmailValid) {
-                  <p>Адрес почты должен содержать символ '@'</p>
+                  <div class="text-danger small mt-1 error">Адрес почты должен содержать символ '@'</div>
                 }
-
                 @if (!isEmailLengthValid) {
-                  <p>Адрес почты должен быть не длиннее 31 символа</p>
+                  <div class="text-danger small mt-1 error">Адрес почты должен быть не длиннее 31 символа</div>
                 }
               </div>
 
-              <div class="form-group tooltip-container">
-                <label for="password">Пароль*</label>
-                <input type="password" id="password" name="password" class="form-input" [(ngModel)]="password" >
+              <div class="position-relative tooltip-container">
+                <label for="password" class="form-label text-muted small mb-1">Пароль*</label>
+                <input type="password" 
+                  id="password" 
+                  name="password" 
+                  class="form-control" 
+                  [(ngModel)]="password"
+                >
                 <!-- Всплывающая подсказка -->
                 <div class="tooltip">
                   <div class="tooltip-arrow"></div>
                   От 6 до 20 символов. Латиница, кириллица, цифры и подчёркивания
                 </div>
-              </div>
                 @if (!isValidLength) {
-                <p>Длина пароля должна быть от 6 до 20 символов</p>
+                  <div class="text-danger small mt-1 error">Длина пароля должна быть от 6 до 20 символов</div>
                 }
                 @if (!isValidSymbols) {
-                  <p>Пароль может включать в себя латиницу, цифры и подчеркивания</p>
+                  <div class="text-danger small mt-1 error">Пароль может включать в себя латиницу, цифры и подчеркивания</div>
                 }
-              
-             
+              </div>
 
-              <div class="form-group">
-                <label for="confirmPassword">Подтвердите пароль*</label>
+              <div>
+                <label for="confirmPassword" class="form-label text-muted small mb-1">Подтвердите пароль*</label>
                 <input type="password" 
-                id="confirmPassword" 
-                name="confirmPassword" 
-                class="form-input">
+                  id="confirmPassword" 
+                  name="confirmPassword" 
+                  class="form-control"
+                >
               </div>
 
-              <div class="form-group">
-                <label for="lastName">Фамилия</label>
+              <div>
+                <label for="lastName" class="form-label text-muted small mb-1">Фамилия</label>
                 <input type="text" 
-                id="lastName" 
-                name="lastName" 
-                class="form-input"
-                [(ngModel)]="lastname">
+                  id="lastName" 
+                  name="lastName" 
+                  class="form-control"
+                  [(ngModel)]="lastname"
+                >
+                @if (!isLastnameValid) {
+                  <div class="text-danger small mt-1 error">Фамилия не может быть длиннее 31 символа</div>
+                }
               </div>
-              @if (!isFirstnameValid) {
-                <p>Фамилия не может быть длиннее 31 символа</p>
-              }
 
-              <div class="form-group">
-                <label for="firstName">Имя</label>
+              <div>
+                <label for="firstName" class="form-label text-muted small mb-1">Имя</label>
                 <input type="text" 
-                id="firstName" 
-                name="firstName" 
-                class="form-input"
-                [(ngModel)]="firstname">
+                  id="firstName" 
+                  name="firstName" 
+                  class="form-control"
+                  [(ngModel)]="firstname"
+                >
+                @if (!isFirstnameValid) {
+                  <div class="text-danger small mt-1 error">Имя не может быть длиннее 31 символа</div>
+                }
               </div>
-              @if (!isFirstnameValid) {
-                <p>Имя не может быть длиннее 31 символа</p>
-              }
             </div>
 
-            <!-- Правая колонка: Заглушка фотографии -->
-            <div class="avatar-column">
-              <div class="avatar-placeholder">
-                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="placeholder-icon">
-                  <!-- Упрощенный силуэт или абстракция, имитирующая карандашный набросок -->
+            <!-- Правая колонка: Заглушка фотографии (4 колонки на больших, 12 на мобильных) -->
+            <div class="col-lg-4 col-md-5 d-flex justify-content-center align-items-start">
+              <!-- border, rounded, bg-light — классы Bootstrap -->
+              <div class="border rounded bg-light d-flex align-items-center justify-content-center w-100" style="height: 310px;">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%; opacity: 0.8;">
                   <path d="M20,80 C30,60 40,55 50,55 C60,55 70,60 80,80" stroke="#cfd7de" stroke-width="2" fill="none" />
                   <circle cx="50" cy="35" r="18" stroke="#cfd7de" stroke-width="2" fill="none" />
                   <path d="M10,15 L90,85 M90,15 L10,85" stroke="#ececec" stroke-width="1" />
@@ -123,36 +130,38 @@
           </div>
 
           <!-- Поля на всю ширину формы -->
-          <div class="form-group-full">
-            <label>Выберите фото</label>
-            <div class="file-upload-wrapper">
-              <input type="text" readonly class="form-input file-path-input" placeholder="">
-              <label class="btn btn-file">
+          
+          <!-- Выбор файла через встроенный компонент Bootstrap input-group -->
+          <div class="mb-3">
+            <label class="form-label text-muted small mb-1">Выберите фото</label>
+            <div class="input-group">
+              <input type="text" readonly class="form-control bg-light" placeholder="">
+              <label class="btn btn-outline-secondary mb-0 d-flex align-items-center">
                 Обзор...
-                <input type="file" class="hidden-file-input">
+                <input type="file" class="d-none">
               </label>
             </div>
           </div>
 
-          <div class="form-group-full">
-            <label for="contacts">Контактная информация</label>
-            <textarea id="contacts" name="contacts" class="form-textarea"></textarea>
+          <div class="mb-3">
+            <label for="contacts" class="form-label text-muted small mb-1">Контактная информация</label>
+            <textarea id="contacts" name="contacts" class="form-control" rows="3"></textarea>
           </div>
 
-          <div class="form-group-full">
-            <label for="about">О себе</label>
-            <textarea id="about" name="about" class="form-textarea"></textarea>
+          <div class="mb-3">
+            <label for="about" class="form-label text-muted small mb-1">О себе</label>
+            <textarea id="about" name="about" class="form-control" rows="3"></textarea>
           </div>
 
-          <div class="form-group-full">
-            <label for="achievements">Достижения</label>
-            <textarea id="achievements" name="achievements" class="form-textarea"></textarea>
+          <div class="mb-3">
+            <label for="achievements" class="form-label text-muted small mb-1">Достижения</label>
+            <textarea id="achievements" name="achievements" class="form-textarea form-control" rows="3"></textarea>
           </div>
 
-          <!-- Нижняя часть внутри карточки -->
-          <div class="card-footer">
-            <span class="required-note">* - поля, обязательные для заполнения</span>
-            <button type="submit" class="btn btn-submit">Зарегистрироваться</button>
+          <!-- Нижняя часть внутри карточки (card-footer) -->
+          <div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top">
+            <span class="text-muted small">* - поля, обязательные для заполнения</span>
+            <button type="submit" class="btn btn-primary px-4">Зарегистрироваться</button>
           </div>
 
         </form>
@@ -160,9 +169,9 @@
     </div>
 
     <!-- Блок входа под формой -->
-    <div class="footer-prompt">
+    <div class="d-flex align-items-center gap-2 mt-4 text-muted small">
       <span>Уже есть аккаунт?</span>
-      <button routerLink="/login" class="btn btn-secondary">Войти</button>
+      <button routerLink="/login" class="btn btn-sm btn-outline-secondary">Войти</button>
     </div>
   </main>
 </div>

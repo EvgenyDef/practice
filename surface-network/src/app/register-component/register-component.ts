@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 import { FormsModule, NgModel } from '@angular/forms';
+import { RegisterService } from '../services/register.service';
+import { RegisterRequest } from '../models/user-registration';
 
 @Component({
   selector: 'app-register-component',
@@ -40,8 +42,36 @@ export class RegisterComponent {
   // Поле для ввода достижений
   achievements: string = '';
 
+  private registerService = inject(RegisterService)
+
   equalsPasswords(password: string, repeatedPassword: string): boolean {
     return password === repeatedPassword;
+  }
+
+  onSubmit(event: Event) {
+    const newUser: RegisterRequest = {
+      nickname: this.nickname,
+      password: this.password,
+      email: this.email,
+      lastname: this.lastname,
+      firstname: this.firstname,
+      photo: this.photo,
+      contacts: this.contacts,
+      aboutMyself: this.aboutMyself,
+      achievements: this.achievements
+    }
+
+    this.registerService.register(newUser).subscribe({
+      next: (response) => {
+        console.log("Регистрация прошла успешно");
+        alert("Регистрация прошла успешно!");
+      },
+      error: (err) => {
+        console.log("Ошибка регистрации");
+        alert("Ошибка регистрации");
+      }
+
+    })
   }
 
   get isNicknameValid(): boolean {
