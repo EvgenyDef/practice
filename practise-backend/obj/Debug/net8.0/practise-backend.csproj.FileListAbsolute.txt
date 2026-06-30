@@ -1,0 +1,73 @@
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/bin/Debug/net8.0/appsettings.Development.json
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/bin/Debug/net8.0/appsettings.json
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/bin/Debug/net8.0/practise-backend
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/bin/Debug/net8.0/practise-backend.deps.json
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/bin/Debug/net8.0/practise-backend.runtimeconfig.json
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/bin/Debug/net8.0/practise-backend.dll
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/bin/Debug/net8.0/practise-backend.pdb
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/bin/Debug/net8.0/Microsoft.AspNetCore.OpenApi.dll
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/bin/Debug/net8.0/Microsoft.OpenApi.dll
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/obj/Debug/net8.0/practise-backend.csproj.AssemblyReference.cache
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/obj/Debug/net8.0/practise-backend.GeneratedMSBuildEditorConfig.editorconfig
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/obj/Debug/net8.0/practise-backend.AssemblyInfoInputs.cache
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/obj/Debug/net8.0/practise-backend.AssemblyInfo.cs
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/obj/Debug/net8.0/practise-backend.csproj.CoreCompileInputs.cache
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/obj/Debug/net8.0/practise-backend.MvcApplicationPartsAssemblyInfo.cs
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/obj/Debug/net8.0/practise-backend.MvcApplicationPartsAssemblyInfo.cache
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/obj/Debug/net8.0/practise-backend.sourcelink.json
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/obj/Debug/net8.0/staticwebassets.build.json
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/obj/Debug/net8.0/staticwebassets.development.json
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/obj/Debug/net8.0/staticwebassets/msbuild.practise-backend.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/obj/Debug/net8.0/staticwebassets/msbuild.build.practise-backend.props
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.practise-backend.props
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.practise-backend.props
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/obj/Debug/net8.0/staticwebassets.pack.json
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/obj/Debug/net8.0/scopedcss/bundle/practise-backend.styles.css
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/obj/Debug/net8.0/practise.7904F27C.Up2Date
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/obj/Debug/net8.0/practise-backend.dll
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/obj/Debug/net8.0/refint/practise-backend.dll
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/obj/Debug/net8.0/practise-backend.pdb
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/obj/Debug/net8.0/practise-backend.genruntimeconfig.cache
+/Users/evgenijzverev/Documents/Практика 2026/project/practice/practise-backend/obj/Debug/net8.0/ref/practise-backend.dll
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/bin/Debug/net8.0/appsettings.Development.json
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/bin/Debug/net8.0/appsettings.json
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/bin/Debug/net8.0/practise-backend
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/bin/Debug/net8.0/practise-backend.deps.json
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/bin/Debug/net8.0/practise-backend.runtimeconfig.json
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/bin/Debug/net8.0/practise-backend.dll
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/bin/Debug/net8.0/practise-backend.pdb
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/bin/Debug/net8.0/Microsoft.AspNetCore.OpenApi.dll
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.dll
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Relational.dll
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/bin/Debug/net8.0/Microsoft.OpenApi.dll
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/bin/Debug/net8.0/Npgsql.dll
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/bin/Debug/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/obj/Debug/net8.0/practise-backend.csproj.AssemblyReference.cache
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/obj/Debug/net8.0/practise-backend.GeneratedMSBuildEditorConfig.editorconfig
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/obj/Debug/net8.0/practise-backend.AssemblyInfoInputs.cache
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/obj/Debug/net8.0/practise-backend.AssemblyInfo.cs
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/obj/Debug/net8.0/practise-backend.csproj.CoreCompileInputs.cache
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/obj/Debug/net8.0/practise-backend.MvcApplicationPartsAssemblyInfo.cs
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/obj/Debug/net8.0/practise-backend.MvcApplicationPartsAssemblyInfo.cache
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/obj/Debug/net8.0/practise-backend.sourcelink.json
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/obj/Debug/net8.0/staticwebassets.build.json
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/obj/Debug/net8.0/staticwebassets.development.json
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/obj/Debug/net8.0/staticwebassets/msbuild.practise-backend.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/obj/Debug/net8.0/staticwebassets/msbuild.build.practise-backend.props
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.practise-backend.props
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.practise-backend.props
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/obj/Debug/net8.0/staticwebassets.pack.json
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/obj/Debug/net8.0/scopedcss/bundle/practise-backend.styles.css
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/obj/Debug/net8.0/practise.7904F27C.Up2Date
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/obj/Debug/net8.0/practise-backend.dll
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/obj/Debug/net8.0/refint/practise-backend.dll
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/obj/Debug/net8.0/practise-backend.pdb
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/obj/Debug/net8.0/practise-backend.genruntimeconfig.cache
+/Users/evgenijzverev/Documents/Practice2026/project/practice/practise-backend/obj/Debug/net8.0/ref/practise-backend.dll
