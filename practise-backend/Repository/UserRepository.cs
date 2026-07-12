@@ -34,4 +34,9 @@ public class UserRepostory : IUserRepository
     {
         await context.SaveChangesAsync();
     }
+
+    public async Task<User?> GetByEmailAsync(String email)
+    {
+        return await context.Users.FirstOrDefaultAsync(user => Equals(user.Email, email));
+    }
 }

@@ -1,13 +1,27 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
+// import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
+// import { provideRouter } from '@angular/router';
+// import { FormsModule } from "@angular/forms";
+// import { routes } from './app.routes';
+// import { provideHttpClient } from '@angular/common/http';
+
+// export const appConfig: ApplicationConfig = {
+//   providers: [
+//     provideBrowserGlobalErrorListeners(),
+//     provideRouter(routes),
+//     provideHttpClient()
+//   ]
+// };
+import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { FormsModule } from "@angular/forms";
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+
 import { routes } from './app.routes';
-import { provideHttpClient } from '@angular/common/http';
+import { AuthInterceptor } from './auth.interceptor';
+//import { AuthInterceptor } from './auth.interceptor';
 
 export const appConfig: ApplicationConfig = {
-  providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideRouter(routes),
-    provideHttpClient()
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideHttpClient(withInterceptorsFromDi()),
+  { provide: "BASE_API_URL", useValue: "http://localhost:5001" },
+  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ]
 };

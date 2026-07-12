@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
-[Route("api/[controller]")]
+//[Route("api/[controller]")]
 public class LoginController : ControllerBase
 {
     private readonly IUserService userService;
@@ -15,8 +15,8 @@ public class LoginController : ControllerBase
     public async Task<IActionResult> Login([FromBody] LoginRequestDto model)
     {
         User? user = await userService.AuthenticateAsync(model.Nickname, model.Password);
-        if (user == null)
-            return BadRequest("Ошибка входа");
+        if (user == null || !Equals(user.Password, model.Password))
+            return Unauthorized(new { message = "Неправильный логин или пароль"});
         else
             return Ok(new
             {

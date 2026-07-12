@@ -54,12 +54,6 @@ namespace practise_backend.Services
                 throw new ArgumentNullException(nameof(dto), "Данные регистрации не могут быть пустыми");
             }
 
-            // Бизнес-валидация: проверяем, совпадают ли пароли перед созданием сущности User
-            if (dto.Password != dto.RepeatedPassword)
-            {
-                throw new ArgumentException("Пароли не совпадают");
-            }
-
             return new User
             {
                 Nickname = dto.Nickname,
@@ -74,12 +68,18 @@ namespace practise_backend.Services
             };
         }
 
-        public async Task<User> RegisterAsync(RegisterRequestDto dto)
+        public async Task<User> RegisterAsync(RegisterRequestDto dto) 
         {
             var u = await userRepository.GetByNicknameAsync(dto.Nickname);
 
             if (u != null)
                 throw new Exception("Пользователь с таким ником уже есть");
+
+            u = await userRepository.GetByEmailAsync(dto.Email);
+
+            if (u != null)
+                throw new Exception("Пользователь с такой почтой уже зарегистрирован");
+            
 
             var user = MapToUser(dto);
 

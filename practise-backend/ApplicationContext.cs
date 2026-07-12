@@ -39,7 +39,7 @@ public class ApplicationContext : DbContext
         modelBuilder.Entity<Post>()
             .HasOne(p => p.User)
             .WithMany(u => u.Posts)
-            .HasForeignKey(p => p.UserId)
+            .HasForeignKey(p => p.AuthorId)
             .OnDelete(DeleteBehavior.Cascade);
     }
 }

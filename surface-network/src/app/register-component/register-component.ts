@@ -1,77 +1,91 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, inject, OnInit } from '@angular/core';
 
 import { FormsModule, NgModel } from '@angular/forms';
+import { UserService } from '../services/user.service';
 import { RegisterService } from '../services/register.service';
 import { RegisterRequest } from '../models/user-registration';
+import { RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-register-component',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, RouterLink],
   templateUrl: './register-component.html',
   styleUrl: './register-component.css',
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
 
-  //  поле для ввода "Псевдонима"
-  nickname: string = '';
+  nickname = '';
+  email = '';
+  password = '';
+  confirmPassword = '';
+  lastname = '';
+  firstname = '';
+  contacts = '';
+  about = '';
+  achievements = '';
+  errorMessage = '';
 
-  // Поле для ввода пароля
-  password: string = '';
+  isSubmited = false;
 
-  email: string = ''
 
-  // Поле для повторного ввода пароля
-  repeatedPassword: string = '';
+  private userService = inject(UserService);
+  private cdr = inject(ChangeDetectorRef);
 
-  // Поле для ввода фамилии
-  lastname: string = '';
+  ngOnInit() {
+    // Подписываемся на ошибки регистрации из сервиса
+    this.userService.errors.subscribe(err => {
+      console.log('Получена ошибка регистрации с сервера:', err);
 
-  // Поле для ввода имени
-  firstname: string = '';
+      // Считываем текст ошибки, отправленный бэкендом (например: "Пользователь с такой почтой уже есть")
+      this.errorMessage = err.error?.message || 'Произошла ошибка при регистрации на сервере';
 
-  // Поле для ввода фотографии
-  photo: string = '';
-
-  // Поле для ввода контактов
-  contacts: string = '';
-
-  // Поля для ввобда информации о себе
-  aboutMyself: string = '';
-
-  // Поле для ввода достижений
-  achievements: string = '';
-
-  private registerService = inject(RegisterService)
-
-  equalsPasswords(password: string, repeatedPassword: string): boolean {
-    return password === repeatedPassword;
+      // 3. Принудительно заставляем Angular отобразить ошибку на экране
+      this.cdr.detectChanges();
+    });
   }
 
   onSubmit(event: Event) {
-    const newUser: RegisterRequest = {
+    event.preventDefault();
+    this.errorMessage = '';
+
+    this.isSubmited = true;
+
+    // Собираем объект, структуру которого ожидает C# RegisterRequestDto
+    const registerData = {
       nickname: this.nickname,
-      password: this.password,
       email: this.email,
+      password: this.password,
+      repeatedPassword: this.confirmPassword, // Название совпадает с C# RepeatedPassword
       lastname: this.lastname,
-      firstname: this.firstname,
-      photo: this.photo,
+      firstName: this.firstname,
       contacts: this.contacts,
-      aboutMyself: this.aboutMyself,
+      about: this.about,
       achievements: this.achievements
-    }
+    };
 
-    this.registerService.register(newUser).subscribe({
-      next: (response) => {
-        console.log("Регистрация прошла успешно");
-        alert("Регистрация прошла успешно!");
-      },
-      error: (err) => {
-        console.log("Ошибка регистрации");
-        alert("Ошибка регистрации");
-      }
+    if (this.isUserDataValid())
+      this.userService.register(registerData);
+    else
+      alert("Ошибка регистрации")
+  }
 
-    })
+
+  isUserDataValid(): boolean {
+    return this.isNicknameValid
+      && this.isEmailLengthValid
+      && this.isEmailValid
+      && this.isValidLength
+      && this.isValidSymbols
+      && this.isFirstnameValid
+      && this.isLastnameValid
+      && this.isContactsValid
+      && this.isAchievementsValid
+  }
+
+  get isPasswordsEquals(): boolean {
+    return this.password === this.confirmPassword;
   }
 
   get isNicknameValid(): boolean {
@@ -107,11 +121,11 @@ export class RegisterComponent {
     return this.contacts.length <= 255;
   }
 
-    get isAboutMyselfValid(): boolean {
+  get isAboutMyselfValid(): boolean {
     return this.contacts.length <= 255;
   }
 
-    get isAchievementsValid(): boolean {
+  get isAchievementsValid(): boolean {
     return this.contacts.length <= 255;
   }
 }

@@ -7,6 +7,7 @@ namespace practise_backend.Repository
         Task AddAsync(User user);
         void Delete(User user);
         Task SaveChangesAsync();
+        Task<User?> GetByEmailAsync(string email); 
     }
 
 }

@@ -84,6 +84,8 @@ builder.Services.AddCors(options =>
     });
 });
 
+
+
 // Регистрируем бин базы данных
 builder.Services.AddDbContext<ApplicationContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -92,12 +94,17 @@ builder.Services.AddDbContext<ApplicationContext>(options =>
 builder.Services.AddScoped<IUserRepository, UserRepostory>();
 builder.Services.AddScoped<IPostRepository, PostRepository>();
 
+// Регистрируем cthdbcs
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPostService, PostService>();
 
 var app = builder.Build();
 
-app.UseCors("AllowAngularOrigins");
+//app.UseCors("AllowAngularOrigins");
+app.UseCors(policy => policy
+    .AllowAnyOrigin()   
+    .AllowAnyMethod()   
+    .AllowAnyHeader());
 
 app.UseStaticFiles();
 
@@ -110,7 +117,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.MapControllers();
 

@@ -1,9 +1,10 @@
+using System.Net;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using practise_backend.Services;
 
 [ApiController]
-[Route("api/[controller]")]
+//[Route("[controller]")]
 public class RegisterController : ControllerBase
 {
     private readonly IUserService userService;
@@ -16,16 +17,16 @@ public class RegisterController : ControllerBase
     [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] RegisterRequestDto model)
     {
-        var response = await userService.RegisterAsync(model);
-        return Ok(response);
-        // using (var db = new ApplicationContext())
-        // {
-            
-        // }
-        // return Ok(new
-        // {
-        //     id = 1,
-        //     nickname = "141"
-        // });  
+        try
+        {
+            var response = await userService.RegisterAsync(model);
+            return Ok(response);
+        }
+        catch (Exception e)
+        {
+            return  BadRequest(new { message = e.Message });
+            //return StatusCode(HttpStatusCode.BadRequest, new {message = e.Message});
+        }
+
     }
 }

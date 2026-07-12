@@ -15,102 +15,83 @@
 
       <!-- Тело карточки с формой -->
       <div class="card-body p-4">
-        <form class="register-form">
-          
+        @if (errorMessage) {
+        <div class="alert alert-danger py-2 px-3 mb-3 small" role="alert">
+          {{ errorMessage }}
+        </div>
+        }
+        <form class="register-form" (submit)="onSubmit($event)">
+
           <!-- Верхняя секция: Сетка Bootstrap (row) -->
           <div class="row g-4 mb-3">
-            
+
             <!-- Левая колонка с полями (8 колонок на больших экранах, 12 на мобильных) -->
             <div class="col-lg-8 col-md-7 d-flex flex-column gap-3">
-              
+
               <div class="position-relative tooltip-container">
                 <label for="username" class="form-label text-muted small mb-1">Псевдоним*</label>
-                <input type="text" 
-                  id="username" 
-                  name="username" 
-                  class="form-control"
-                  [(ngModel)]="nickname"
-                >
+                <input type="text" id="username" name="username" class="form-control" [(ngModel)]="nickname">
                 <!-- Всплывающая подсказка (ваши стили сохранены) -->
                 <div class="tooltip">
                   <div class="tooltip-arrow"></div>
                   От 3 до 20 символов. Латиница, кириллица, цифры и подчёркивания
                 </div>
-                @if (!isNicknameValid) {
-                  <div class="text-danger small mt-1 error">Длина псевдонима должна быть от 3 до 20 символов</div>
+                @if (!isNicknameValid && isSubmited) {
+                <div class="text-danger small mt-1 error">Длина псевдонима должна быть от 3 до 20 символов</div>
                 }
               </div>
 
               <div>
                 <label for="email" class="form-label text-muted small mb-1">Почта</label>
-                <input type="email" 
-                  id="email" 
-                  name="email" 
-                  class="form-control" 
-                  placeholder="example@ex.ru"
-                  [(ngModel)]="email"
-                >
-                @if (!isEmailValid) {
-                  <div class="text-danger small mt-1 error">Адрес почты должен содержать символ '@'</div>
+                <input type="email" id="email" name="email" class="form-control" placeholder="example@ex.ru"
+                  [(ngModel)]="email">
+                @if (!isEmailValid && isSubmited) {
+                <div class="text-danger small mt-1 error">Адрес почты должен содержать символ '@'</div>
                 }
-                @if (!isEmailLengthValid) {
-                  <div class="text-danger small mt-1 error">Адрес почты должен быть не длиннее 31 символа</div>
+                @if (!isEmailLengthValid && isSubmited) {
+                <div class="text-danger small mt-1 error">Адрес почты должен быть не длиннее 31 символа</div>
                 }
               </div>
 
               <div class="position-relative tooltip-container">
                 <label for="password" class="form-label text-muted small mb-1">Пароль*</label>
-                <input type="password" 
-                  id="password" 
-                  name="password" 
-                  class="form-control" 
-                  [(ngModel)]="password"
-                >
+                <input type="password" id="password" name="password" class="form-control" [(ngModel)]="password">
                 <!-- Всплывающая подсказка -->
                 <div class="tooltip">
                   <div class="tooltip-arrow"></div>
                   От 6 до 20 символов. Латиница, кириллица, цифры и подчёркивания
                 </div>
-                @if (!isValidLength) {
-                  <div class="text-danger small mt-1 error">Длина пароля должна быть от 6 до 20 символов</div>
+                @if (!isValidLength && isSubmited) {
+                <div class="text-danger small mt-1 error">Длина пароля должна быть от 6 до 20 символов</div>
                 }
-                @if (!isValidSymbols) {
-                  <div class="text-danger small mt-1 error">Пароль может включать в себя латиницу, цифры и подчеркивания</div>
+                @if (!isValidSymbols && isSubmited) {
+                <div class="text-danger small mt-1 error">Пароль может включать в себя латиницу, цифры и подчеркивания
+                </div>
                 }
               </div>
 
               <div>
                 <label for="confirmPassword" class="form-label text-muted small mb-1">Подтвердите пароль*</label>
-                <input type="password" 
-                  id="confirmPassword" 
-                  name="confirmPassword" 
-                  class="form-control"
-                >
+                <input type="password" id="confirmPassword" name="confirmPassword" class="form-control"
+                  [(ngModel)]="confirmPassword">
+                @if (!isPasswordsEquals) {
+                <div class="text-danger small mt-1 error">Пароли не совпадают</div>
+                }
               </div>
 
               <div>
                 <label for="lastName" class="form-label text-muted small mb-1">Фамилия</label>
-                <input type="text" 
-                  id="lastName" 
-                  name="lastName" 
-                  class="form-control"
-                  [(ngModel)]="lastname"
-                >
-                @if (!isLastnameValid) {
-                  <div class="text-danger small mt-1 error">Фамилия не может быть длиннее 31 символа</div>
+                <input type="text" id="lastName" name="lastName" class="form-control" [(ngModel)]="lastname">
+                @if (!isLastnameValid && isSubmited) {
+                <div class="text-danger small mt-1 error">Фамилия не может быть длиннее 31 символа</div>
                 }
               </div>
 
               <div>
                 <label for="firstName" class="form-label text-muted small mb-1">Имя</label>
-                <input type="text" 
-                  id="firstName" 
-                  name="firstName" 
-                  class="form-control"
-                  [(ngModel)]="firstname"
-                >
-                @if (!isFirstnameValid) {
-                  <div class="text-danger small mt-1 error">Имя не может быть длиннее 31 символа</div>
+                <input type="text" id="firstName" name="firstName" class="form-control" [(ngModel)]="firstname">
+                @if (!isFirstnameValid && isSubmited) {
+                <div class="text-danger small mt-1 error">Имя не может быть длиннее 31 символа</div>
                 }
               </div>
             </div>
@@ -118,9 +99,12 @@
             <!-- Правая колонка: Заглушка фотографии (4 колонки на больших, 12 на мобильных) -->
             <div class="col-lg-4 col-md-5 d-flex justify-content-center align-items-start">
               <!-- border, rounded, bg-light — классы Bootstrap -->
-              <div class="border rounded bg-light d-flex align-items-center justify-content-center w-100" style="height: 310px;">
-                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%; opacity: 0.8;">
-                  <path d="M20,80 C30,60 40,55 50,55 C60,55 70,60 80,80" stroke="#cfd7de" stroke-width="2" fill="none" />
+              <div class="border rounded bg-light d-flex align-items-center justify-content-center w-100"
+                style="height: 310px;">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  style="width: 100%; height: 100%; opacity: 0.8;">
+                  <path d="M20,80 C30,60 40,55 50,55 C60,55 70,60 80,80" stroke="#cfd7de" stroke-width="2"
+                    fill="none" />
                   <circle cx="50" cy="35" r="18" stroke="#cfd7de" stroke-width="2" fill="none" />
                   <path d="M10,15 L90,85 M90,15 L10,85" stroke="#ececec" stroke-width="1" />
                 </svg>
@@ -130,7 +114,7 @@
           </div>
 
           <!-- Поля на всю ширину формы -->
-          
+
           <!-- Выбор файла через встроенный компонент Bootstrap input-group -->
           <div class="mb-3">
             <label class="form-label text-muted small mb-1">Выберите фото</label>
@@ -171,7 +155,7 @@
     <!-- Блок входа под формой -->
     <div class="d-flex align-items-center gap-2 mt-4 text-muted small">
       <span>Уже есть аккаунт?</span>
-      <button routerLink="/login" class="btn btn-sm btn-outline-secondary">Войти</button>
+      <a routerLink="/login" class="btn btn-sm btn-outline-secondary">Войти</a>
     </div>
   </main>
 </div>
